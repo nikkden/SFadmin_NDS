@@ -1,0 +1,16 @@
+---
+- name: Installing and configuring Zabbix Agent
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Создание директории для скаченного пакета
+      file:
+        path: "/home/den/zabbix-packages"
+        state: directory
+        mode: '0755'
+
+    - name: Скачивание Zabbix репозитория
+      get_url:
+        url: https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-4+ubuntu20.04_all.deb
+        dest: "/home/den/zabbix-packages/zabbix-release_6.0-4+ubuntu20.04_all.deb" 

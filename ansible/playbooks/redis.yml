@@ -1,0 +1,17 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+
+  -  name: Install redis on Ubuntu
+     apt:
+        name=redis
+        state=latest
+        redis systemd
+  handlers:
+  - name: redis systemd
+    systemd:
+     name: redis.service
+     enabled: yes
+     state: started
