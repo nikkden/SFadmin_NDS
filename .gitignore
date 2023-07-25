@@ -1,6 +1,6 @@
 nginx/
 ansible/playbooks/redis.yml 
 ansible/playbooks/script.yml 
-ansible/playbooks/zabbix_agent.yml
+ansible/playbooks/install_zabbix-agent.yml
 ansible/playbooks/test2
 ansible/common/files/
