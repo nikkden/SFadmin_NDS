@@ -1,0 +1,25 @@
+---
+- name: Install and configure Zabbix-agent 
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Установка Zabbix Agent
+    apt:
+      name: zabbix-agent
+      state: present
+
+  - name: Настройка параметров конфигурации Zabbix Agent
+    lineinfile:
+      path: /etc/zabbix/zabbix_agentd.conf
+      regex: "{{ item.regex }}"
+      line: "{{ item.line }}"
+    with_items:
+      - { regex: '^Server=', line: 'Server=10.129.0.9' }
+      - { regex: '^Hostname=', line: 'Hostname={{ ansible_hostname }}' }  
+
+  - name: Запуск и активация службы Zabbix Agent
+    service:
+      name: zabbix-agent
+      state: started
+      enabled: yes  

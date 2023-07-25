@@ -1,6 +1,5 @@
 nginx/
-ansible/playbooks/redis.yml 
 ansible/playbooks/script.yml 
-ansible/playbooks/install_zabbix-agent.yml
 ansible/playbooks/test2
-ansible/common/files/
+ansible/common/files/testweb.sh
+
