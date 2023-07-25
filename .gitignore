@@ -1,4 +1,5 @@
 nginx/
 ansible/playbooks/add_user.yml
 ansible/playbooks/script.yml
+ansible/playbooks/test2
 ansible/common/files/testweb.sh
